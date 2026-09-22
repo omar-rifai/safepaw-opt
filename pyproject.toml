@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "safepaw_opt"
+version = "0.0.1"
+authors = [
+  { name="Omar El Rifai" },
+]
+
+dependencies = [
+    "numpy>=2.3.5,<3.0.0",
+    "pandas>=2.3.3,<3.0.0",
+    "pydantic>=2.12.5,<3.0.0",
+    "typer>=0.21.1,<0.22.0",
+    "pulp>=3.3.0,<4.0.0",
+    "highspy>=1.12.0,<2.0.0"
+]
+
+
+description = "Optimization model for casemix planning"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/omar-rifai/safepaw-opt"
+Issues = "https://github.com/omar-rifai/safepaw-opt/issues"
+
+[tool.pixi.workspace]
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-arm64"]  
+
+[tool.pixi.dependencies]
+highspy = ">=1.12.0,<2.0.0"
+
+[tool.pixi.pypi-dependencies]
+pulp = ">=3.3.0,<4.0.0"
+Gurobipy = ">=13.0.1,<14.0.0"
+
+[tool.pixi.feature.dev.dependencies]
+ipykernel = "*"
+notebook = "*"
+
+[tool.pixi.environments]
+dev = ["dev"]
