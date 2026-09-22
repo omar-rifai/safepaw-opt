@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "safepaw_opt"
-version = "0.0.1"
+version = "0.0.3"
 authors = [
   { name="Omar El Rifai" },
 ]
@@ -29,9 +29,16 @@ classifiers = [
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
 
+
+[project.scripts]
+safepaw-opt = "safepaw_opt.core.main:cli"
+
 [project.urls]
 Homepage = "https://github.com/omar-rifai/safepaw-opt"
 Issues = "https://github.com/omar-rifai/safepaw-opt/issues"
+
+
+
 
 [tool.pixi.workspace]
 channels = ["conda-forge"]

@@ -1,11 +1,11 @@
 import pulp
-from src.safepaw_opt.core.optimization import declare_constraints, set_obj_fn
-from src.safepaw_opt.core.utils.data_utils import package_results, get_summary_results
+from .optimization import declare_constraints, set_obj_fn
 import typer
 import os
 from pathlib import Path
 import time 
 from typing import Any
+from .utils.data_utils import package_results
 from pydantic import BaseModel
 
  
@@ -95,9 +95,10 @@ def run_driver(params_system):
     
 
 
-def main(params_file : Path = typer.Argument(..., help="Path to JSON parameters file")):
+def main(params_file : str = typer.Argument(..., help="Path to JSON parameters file")):
     import json
 
+    params_file = Path(params_file)
     if not params_file.exists():
         typer.echo(f"Error: file {params_file} does not exist")
         raise typer.Exit(code=1)
@@ -115,8 +116,11 @@ def main(params_file : Path = typer.Argument(..., help="Path to JSON parameters 
     return dict_results
 
 
-if __name__ == "__main__":
+def cli():
     typer.run(main)
+
+if __name__ == "__main__":
+    cli()
 
 
 
