@@ -1,0 +1,27 @@
+[workspace]
+name = "safepaw-opt"
+version = "0.1.0"
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-64", "osx-arm64"]
+
+[dependencies]
+python = ">=3.11"
+numpy = ">=2.3.5,<3.0.0"
+pandas = ">=2.3.3,<3.0.0"
+pydantic = ">=2.12.5,<3.0.0"
+highspy = ">=1.12.0,<2.0.0"
+"python-multipart" = ">=0.0.20,<0.0.21"
+pyproj = ">=3.6.0,<4.0.0"
+typer = ">=0.21.1,<0.22.0"
+
+
+[pypi-dependencies]
+pulp = ">=3.3.0,<4.0.0"
+Gurobipy = ">=13.0.1,<14.0.0"
+
+[feature.dev.dependencies]
+ipykernel = "*"
+notebook = "*"
+
+[environments]
+dev = ["dev"]
